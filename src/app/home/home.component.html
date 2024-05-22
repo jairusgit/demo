@@ -1,0 +1,31 @@
+<section>
+  <h1>{{ title }}</h1>
+  <mat-grid-list cols="2">
+    <mat-grid-tile *ngFor="let item of items">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title-group>
+            <img mat-card-md-image src="/assets/img/{{ item.imagen }}" alt="{{ item.titulo }}">
+            <div>
+              <mat-card-title>
+                {{ item.titulo }}
+              </mat-card-title>
+              <p>
+                {{ item.entradilla }}
+              </p>
+            </div>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{ item.fecha }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Ver más</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>
+

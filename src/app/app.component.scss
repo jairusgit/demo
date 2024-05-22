@@ -1,0 +1,106 @@
+@use '../theme' as theme;
+
+main {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mat-toolbar{
+  justify-content: space-between;
+  @include theme.get-color(primary,lighter);
+  @include theme.get-bg-color(primary,darker);
+  div{
+    display: flex;
+    align-items: center;
+
+    img{
+      height: 2.5rem;
+      vertical-align: middle;
+      &.logo-light{
+        display: none;
+      }
+      @media (prefers-color-scheme: light) {
+        &.logo-light{
+          display: inline-block;
+        }
+        &.logo-dark{
+          display: none;
+        }
+      }
+    }
+  }
+  nav ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    li{
+      padding-left: 1rem;
+      @include theme.a-no-underline-hover-bold();
+    }
+  }
+
+  &.is-mobile{
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+  }
+}
+
+.mat-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+    causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+  .mat-drawer{
+    border-right: none;
+    @include theme.get-bg-color(accent,default);
+  }
+  ul{
+    list-style: none;
+    padding: 0 1.2rem;
+    li{
+      display: flex;
+      align-items: center;
+      justify-items: start;
+      padding: 0.25rem 0;
+      @include theme.a-no-underline-hover-bold();
+      @include theme.get-color(accent,lighter);
+      a{
+        font-weight: normal;
+        .mat-icon{
+          font-size: 1.5rem;
+          height: 1.5rem;
+          width: 1.5rem;
+          @include theme.get-color(accent,lighter);
+        }
+      }
+    }
+  }
+  &.is-mobile{
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+    `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+    margin-top: 56px;
+  }
+}
+
+section{
+  margin: 1rem;
+}
+
+footer{
+  width: 100%;
+  align-self: end;
+  padding: 1.3rem;
+  text-align: center;
+  @include theme.get-color(primary,lighter);
+  @include theme.get-bg-color(primary,darker);
+  p{
+    margin: 0;
+    @include theme.a-no-underline-hover-bold();
+  }
+}
