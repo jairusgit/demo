@@ -1,6 +1,5 @@
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
-import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -11,14 +10,24 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, CommonModule, RouterOutlet],
+  imports: [
+    MatToolbarModule, 
+    MatButtonModule, 
+    MatIconModule, 
+    MatSidenavModule, 
+    CommonModule, 
+    RouterOutlet
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnDestroy{
-  mobileQuery: MediaQueryList;
+  
   title = 'Las Casas de Hogwarts';
 
+  /* Listener para comprobar si estoy en móviles */
+  mobileQuery: MediaQueryList;
+  
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {

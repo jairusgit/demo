@@ -1,5 +1,6 @@
 @use '../theme' as theme;
 
+/* Contenedor principal */
 main {
   display: flex;
   flex-direction: column;
@@ -10,10 +11,11 @@ main {
   right: 0;
 }
 
+/* Barra superior */
 .mat-toolbar{
   justify-content: space-between;
-  @include theme.get-color(primary,lighter);
-  @include theme.get-bg-color(primary,darker);
+  @include theme.get-color(primary,lighter); /* Mixin en _theme.scss */
+  @include theme.get-bg-color(primary,darker); /* Mixin en _theme.scss */
   div{
     display: flex;
     align-items: center;
@@ -24,6 +26,7 @@ main {
       &.logo-light{
         display: none;
       }
+      /* Cambio de logo en función del tema */
       @media (prefers-color-scheme: light) {
         &.logo-light{
           display: inline-block;
@@ -34,6 +37,7 @@ main {
       }
     }
   }
+  /* Menú de navegación */
   nav ul{
     list-style: none;
     display: flex;
@@ -44,17 +48,21 @@ main {
     }
   }
 
+  /* En móviles, nos aseguramos de que la barra quede fija */
   &.is-mobile{
     position: fixed;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
     z-index: 2;
   }
 }
 
+/* Contenedor para el sidenav y el contenido principal */
 .mat-sidenav-container {
-  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-    causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  /* 
+   * Por defecto, ajusta el contenido apra ocpar todo el espacio disponible. Esto 
+   * hace que <mat-sidenav-content> sea el elemento de scroll en layouts de escritorio. 
+   */
   flex: 1;
+  /* Barra de navegación lateral */
   .mat-drawer{
     border-right: none;
     @include theme.get-bg-color(accent,default);
@@ -67,40 +75,44 @@ main {
       align-items: center;
       justify-items: start;
       padding: 0.25rem 0;
-      @include theme.a-no-underline-hover-bold();
-      @include theme.get-color(accent,lighter);
+      @include theme.a-no-underline-hover-bold(); /* Mixin en _theme.scss */
+      @include theme.get-color(accent,lighter); /* Mixin en _theme.scss */
       a{
         font-weight: normal;
         .mat-icon{
           font-size: 1.5rem;
           height: 1.5rem;
           width: 1.5rem;
-          @include theme.get-color(accent,lighter);
+          @include theme.get-color(accent,lighter); /* Mixin en _theme.scss */
         }
       }
     }
   }
+  /* 
+   * En móviles, no bloquea la altura del contenedor. Esto hace que 
+   * <body> sea el elemento de scroll en layout de móviles
+   */
   &.is-mobile{
-    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-    `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
     margin-top: 56px;
   }
 }
 
+/* Contenedor para el <router-outlet> */ 
 section{
   margin: 1rem;
 }
 
+/* Pie del sitio */
 footer{
   width: 100%;
   align-self: end;
   padding: 1.3rem;
   text-align: center;
-  @include theme.get-color(primary,lighter);
-  @include theme.get-bg-color(primary,darker);
+  @include theme.get-color(primary,lighter); /* Mixin en _theme.scss */
+  @include theme.get-bg-color(primary,darker); /* Mixin en _theme.scss */
   p{
     margin: 0;
-    @include theme.a-no-underline-hover-bold();
+    @include theme.a-no-underline-hover-bold(); /* Mixin en _theme.scss */
   }
 }
