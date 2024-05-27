@@ -1,0 +1,7 @@
+/* Esto me permitirá usar los mixins de _theme.scss */
+@use '../../theme' as theme;
+
+.mdc-list{
+    /* Enlace */
+    @include theme.a-no-underline-hover-bold();
+}

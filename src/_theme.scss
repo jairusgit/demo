@@ -96,6 +96,7 @@ $t-dark: mat.define-dark-theme((
   a {
       font-weight: normal;
       text-decoration: none;
+      color: unset;
 
       &:hover {
           font-weight: bold;

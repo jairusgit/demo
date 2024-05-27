@@ -10,7 +10,7 @@ export const routes: Routes = [
     //Ruta s uns página dinámica que muestra el contenido de la casa seleccionada
     { path: 'casa/:slug', component: CasaComponent },
     //Ruta a una página estática con información del sitio web
-    { path: 'Informacion', component: InformacionComponent },
+    { path: 'informacion', component: InformacionComponent },
     //Ruta a una página estática con un formulario de contacto
     { path: 'contacto', component: ContactoComponent },
     //Ruta por defecto (para mostrar la de inicio si no encuentra otra)

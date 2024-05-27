@@ -29,6 +29,10 @@
         padding-bottom: 0.5rem;
         border-bottom: 1px solid #ccc;
 
+        /* Enlace */
+        @include theme.a-no-underline-hover-bold();
+        
+
         /* Fecha */
         p:last-child{
             text-align: right;

@@ -27,6 +27,7 @@ export class ContactoComponent {
   /* Título de la página*/
   title = "Formulario de contacto";
 
+  /* Campos del formulario */
   private fb = inject(FormBuilder);
   addressForm = this.fb.group({
     nombre: [null, Validators.required],
@@ -40,6 +41,7 @@ export class ContactoComponent {
     sexo: ['no', Validators.required]
   });
 
+  /* Listado de provincias */
   provincias = [
     {"nombre": "Álava", "abreviatura": "VI"},
     {"nombre": "Albacete", "abreviatura": "AB"},
@@ -93,6 +95,7 @@ export class ContactoComponent {
     {"nombre": "Zaragoza", "abreviatura": "Z"}
   ];
 
+  /* Mensaje de respuesta al enviar el formulario */
   onSubmit(): void {
     alert('¡Gracias!');
   }
