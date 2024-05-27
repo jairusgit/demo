@@ -1,5 +1,4 @@
-import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy, inject} from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
@@ -13,7 +12,7 @@ import data from "../../assets/data.json"; /* Archivo con los datos de cada casa
   templateUrl: './casa.component.html',
   styleUrl: './casa.component.scss'
 })
-export class CasaComponent implements OnDestroy{
+export class CasaComponent{
 
   /* Objeto con los datos de cada casa */
   items:{
@@ -26,7 +25,7 @@ export class CasaComponent implements OnDestroy{
     texto: string
   }[] = data;
 
-  /* Recupero el slug de la casa */
+  /* Recupero de la ruta el slug de la casa */
   activatedRoute = inject(ActivatedRoute);
   slug = this.activatedRoute.snapshot.params['slug'];
 
@@ -35,19 +34,4 @@ export class CasaComponent implements OnDestroy{
 
   /* Título de la página*/
   title = "La Casa " + this.item.titulo;
-
-  /* Listener para comprobar si estoy en tablets */
-  tabletQuery: MediaQueryList;
-  
-  private _tabletQueryListener: () => void;
-
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.tabletQuery = media.matchMedia('(max-width: 960px)');
-    this._tabletQueryListener = () => changeDetectorRef.detectChanges();
-    this.tabletQuery.addListener(this._tabletQueryListener);
-  }
-
-  ngOnDestroy(): void {
-    this.tabletQuery.removeListener(this._tabletQueryListener);
-  }
 }
