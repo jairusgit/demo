@@ -2,7 +2,7 @@
     {
       "titulo": "Gryffindor",
       "slug": "gryffindor",
-      "imagen": "gryffindor.jpg",
+      "imagen": "gryffindor.png",
       "fuente": "https://harrypotter.fandom.com",
       "fecha": "27/10/2021",
       "entradilla": "La Casa Gryffindor fue fundada por el célebre mago Godric Gryffindor.",
@@ -11,7 +11,7 @@
     {
       "titulo": "Hufflepuff",
       "slug": "hufflepuff",
-      "imagen": "hufflepuff.jpg",
+      "imagen": "hufflepuff.png",
       "fuente": "https://harrypotter.fandom.com",
       "fecha": "03/04/2022",
       "entradilla": "La Casa Hufflepuff se encuentra en una bodega en el mismo pasillo subterráneo que en el de la cocina.",
@@ -20,7 +20,7 @@
     {
       "titulo": "Ravenclaw",
       "slug": "ravenclaw",
-      "imagen": "ravenclaw.jpg",
+      "imagen": "ravenclaw.png",
       "fuente": "https://harrypotter.fandom.com",
       "fecha": "15/06/2020",
       "entradilla": "La Casa Ravenclaw se encuentra en una torre en el ala oeste del castillo.",
@@ -29,7 +29,7 @@
     {
       "titulo": "Slytherin",
       "slug": "slytherin",
-      "imagen": "slytherin.jpg",
+      "imagen": "slytherin.png",
       "fuente": "https://harrypotter.fandom.com",
       "fecha": "01/09/2024",
       "entradilla": "La Casa Slytherin se caracteriza principalmente por la ambición y la astucia.",
