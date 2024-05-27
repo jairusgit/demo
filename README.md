@@ -1,3 +1,5 @@
+Demo funcional de apoyo para la clase https://jairogarciarincon.com/clase/diseno-responsive-con-angular-material-y-sass
+
 # Demo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
