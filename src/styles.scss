@@ -1,2 +1,9 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Título de la página */
+.mat-typography h1 { 
+    font-size: 2.5rem;
+    font-weight: lighter;
+    margin: 2rem 1rem;
+  }
