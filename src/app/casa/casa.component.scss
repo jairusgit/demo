@@ -1,0 +1,54 @@
+/* Esto me permitirá usar los mixins de _theme.scss */
+@use '../../theme' as theme;
+
+/* Tarjeta */
+.mat-mdc-card{
+    margin-top: 2rem;
+    padding: 2rem;
+    flex-direction: row;
+
+    /* En tablets, la imagen se queda sola arriba y alineada al centro */
+    @media (max-width: 960px) {
+        flex-direction: column;
+
+        div:first-child{
+            text-align: center;
+        }
+    }
+
+    /* Titular */
+    .mat-mdc-card-title{
+        padding: 1rem;
+        font-weight: normal;
+        font-size: 2rem;
+    }
+
+    /* Contenido */
+    .mat-mdc-card-content{
+        margin: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #ccc;
+
+        /* Fecha */
+        p:last-child{
+            text-align: right;
+        }
+    }
+
+    /* Contenedor de acciones */
+    .mdc-card__actions{
+        justify-content: end;
+
+        /* Botón de acción */
+        .mat-mdc-button{
+            padding: 1.3rem;
+            
+            font-size: 1.2rem;
+            font-weight: normal;
+            font-family: Roboto, "Helvetica Neue", sans-serif;
+            @include theme.get-color(primary,darker); /* Mixin en _theme.scss */
+            @include theme.get-bg-color(primary,lighter); /* Mixin en _theme.scss */
+        }
+    }
+
+}
