@@ -16,6 +16,7 @@ import data from "../../assets/data.json"; /* Archivo con los datos de cada casa
 export class HomeComponent implements OnDestroy {
   /* Título de la página*/
   title = "Las Casas de Hogwarts";
+  
   /* Objeto con los datos de cada casa para recorrerlo en la vista */
   public items:{
     titulo:string,

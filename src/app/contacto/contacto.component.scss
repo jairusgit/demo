@@ -1,3 +1,6 @@
+/* Esto me permitirá usar los mixins de _theme.scss */
+@use '../../theme' as theme;
+
 .full-width {
   width: 100%;
 }
@@ -15,13 +18,52 @@
 .row {
   display: flex;
   flex-direction: row;
+  margin-bottom: 1rem;
+
+  /* En tablets, todos los campos ocupan 100% */
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
 }
 
 .col {
   flex: 1;
   margin-right: 20px;
+
+  /* En tablets, elimino el margen de los campos que eran dobles */
+  @media (max-width: 960px) {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
 }
 
 .col:last-child {
   margin-right: 0;
+}
+
+/* Contenedor de acciones */
+.mdc-card__actions{
+  justify-content: end;
+  margin-top: 2rem;
+  
+  /* Valores comunes a los dos botones */
+  a, button{
+    font-weight: normal;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    padding: 1.3rem;
+    font-size: 1.2rem;
+
+    /* Botón de volver */
+    &.mat-mdc-button{
+      @include theme.get-color(primary,darker); /* Mixin en _theme.scss */
+      @include theme.get-bg-color(primary,lighter); /* Mixin en _theme.scss */
+      margin-right: 1rem;
+    }
+
+    /* Botón de submit */
+    &.mat-mdc-raised-button{
+      @include theme.get-color(primary,lighter); /* Mixin en _theme.scss */
+      @include theme.get-bg-color(primary,darker); /* Mixin en _theme.scss */
+    }
+  }
 }

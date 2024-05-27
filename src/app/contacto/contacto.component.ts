@@ -23,86 +23,77 @@ import { MatCardModule } from '@angular/material/card';
   ]
 })
 export class ContactoComponent {
+
+  /* Título de la página*/
+  title = "Formulario de contacto";
+
   private fb = inject(FormBuilder);
   addressForm = this.fb.group({
-    company: null,
-    firstName: [null, Validators.required],
-    lastName: [null, Validators.required],
-    address: [null, Validators.required],
-    address2: null,
-    city: [null, Validators.required],
-    state: [null, Validators.required],
-    postalCode: [null, Validators.compose([
+    nombre: [null, Validators.required],
+    apellidos: [null, Validators.required],
+    direccion: [null, Validators.required],
+    ciudad: [null, Validators.required],
+    provincia: [null, Validators.required],
+    codigoPostal: [null, Validators.compose([
       Validators.required, Validators.minLength(5), Validators.maxLength(5)])
     ],
-    shipping: ['free', Validators.required]
+    sexo: ['no', Validators.required]
   });
 
-  hasUnitNumber = false;
-
-  states = [
-    {name: 'Alabama', abbreviation: 'AL'},
-    {name: 'Alaska', abbreviation: 'AK'},
-    {name: 'American Samoa', abbreviation: 'AS'},
-    {name: 'Arizona', abbreviation: 'AZ'},
-    {name: 'Arkansas', abbreviation: 'AR'},
-    {name: 'California', abbreviation: 'CA'},
-    {name: 'Colorado', abbreviation: 'CO'},
-    {name: 'Connecticut', abbreviation: 'CT'},
-    {name: 'Delaware', abbreviation: 'DE'},
-    {name: 'District Of Columbia', abbreviation: 'DC'},
-    {name: 'Federated States Of Micronesia', abbreviation: 'FM'},
-    {name: 'Florida', abbreviation: 'FL'},
-    {name: 'Georgia', abbreviation: 'GA'},
-    {name: 'Guam', abbreviation: 'GU'},
-    {name: 'Hawaii', abbreviation: 'HI'},
-    {name: 'Idaho', abbreviation: 'ID'},
-    {name: 'Illinois', abbreviation: 'IL'},
-    {name: 'Indiana', abbreviation: 'IN'},
-    {name: 'Iowa', abbreviation: 'IA'},
-    {name: 'Kansas', abbreviation: 'KS'},
-    {name: 'Kentucky', abbreviation: 'KY'},
-    {name: 'Louisiana', abbreviation: 'LA'},
-    {name: 'Maine', abbreviation: 'ME'},
-    {name: 'Marshall Islands', abbreviation: 'MH'},
-    {name: 'Maryland', abbreviation: 'MD'},
-    {name: 'Massachusetts', abbreviation: 'MA'},
-    {name: 'Michigan', abbreviation: 'MI'},
-    {name: 'Minnesota', abbreviation: 'MN'},
-    {name: 'Mississippi', abbreviation: 'MS'},
-    {name: 'Missouri', abbreviation: 'MO'},
-    {name: 'Montana', abbreviation: 'MT'},
-    {name: 'Nebraska', abbreviation: 'NE'},
-    {name: 'Nevada', abbreviation: 'NV'},
-    {name: 'New Hampshire', abbreviation: 'NH'},
-    {name: 'New Jersey', abbreviation: 'NJ'},
-    {name: 'New Mexico', abbreviation: 'NM'},
-    {name: 'New York', abbreviation: 'NY'},
-    {name: 'North Carolina', abbreviation: 'NC'},
-    {name: 'North Dakota', abbreviation: 'ND'},
-    {name: 'Northern Mariana Islands', abbreviation: 'MP'},
-    {name: 'Ohio', abbreviation: 'OH'},
-    {name: 'Oklahoma', abbreviation: 'OK'},
-    {name: 'Oregon', abbreviation: 'OR'},
-    {name: 'Palau', abbreviation: 'PW'},
-    {name: 'Pennsylvania', abbreviation: 'PA'},
-    {name: 'Puerto Rico', abbreviation: 'PR'},
-    {name: 'Rhode Island', abbreviation: 'RI'},
-    {name: 'South Carolina', abbreviation: 'SC'},
-    {name: 'South Dakota', abbreviation: 'SD'},
-    {name: 'Tennessee', abbreviation: 'TN'},
-    {name: 'Texas', abbreviation: 'TX'},
-    {name: 'Utah', abbreviation: 'UT'},
-    {name: 'Vermont', abbreviation: 'VT'},
-    {name: 'Virgin Islands', abbreviation: 'VI'},
-    {name: 'Virginia', abbreviation: 'VA'},
-    {name: 'Washington', abbreviation: 'WA'},
-    {name: 'West Virginia', abbreviation: 'WV'},
-    {name: 'Wisconsin', abbreviation: 'WI'},
-    {name: 'Wyoming', abbreviation: 'WY'}
+  provincias = [
+    {"nombre": "Álava", "abreviatura": "VI"},
+    {"nombre": "Albacete", "abreviatura": "AB"},
+    {"nombre": "Alicante", "abreviatura": "A"},
+    {"nombre": "Almería", "abreviatura": "AL"},
+    {"nombre": "Asturias", "abreviatura": "O"},
+    {"nombre": "Ávila", "abreviatura": "AV"},
+    {"nombre": "Badajoz", "abreviatura": "BA"},
+    {"nombre": "Barcelona", "abreviatura": "B"},
+    {"nombre": "Burgos", "abreviatura": "BU"},
+    {"nombre": "Cáceres", "abreviatura": "CC"},
+    {"nombre": "Cádiz", "abreviatura": "CA"},
+    {"nombre": "Cantabria", "abreviatura": "S"},
+    {"nombre": "Castellón", "abreviatura": "CS"},
+    {"nombre": "Ciudad Real", "abreviatura": "CR"},
+    {"nombre": "Córdoba", "abreviatura": "CO"},
+    {"nombre": "Cuenca", "abreviatura": "CU"},
+    {"nombre": "Girona", "abreviatura": "GI"},
+    {"nombre": "Granada", "abreviatura": "GR"},
+    {"nombre": "Guadalajara", "abreviatura": "GU"},
+    {"nombre": "Guipúzcoa", "abreviatura": "SS"},
+    {"nombre": "Huelva", "abreviatura": "H"},
+    {"nombre": "Huesca", "abreviatura": "HU"},
+    {"nombre": "Illes Balears", "abreviatura": "PM"},
+    {"nombre": "Jaén", "abreviatura": "J"},
+    {"nombre": "La Coruña", "abreviatura": "C"},
+    {"nombre": "La Rioja", "abreviatura": "LO"},
+    {"nombre": "Las Palmas", "abreviatura": "GC"},
+    {"nombre": "León", "abreviatura": "LE"},
+    {"nombre": "Lleida", "abreviatura": "L"},
+    {"nombre": "Lugo", "abreviatura": "LU"},
+    {"nombre": "Madrid", "abreviatura": "M"},
+    {"nombre": "Málaga", "abreviatura": "MA"},
+    {"nombre": "Murcia", "abreviatura": "MU"},
+    {"nombre": "Navarra", "abreviatura": "NA"},
+    {"nombre": "Ourense", "abreviatura": "OR"},
+    {"nombre": "Palencia", "abreviatura": "P"},
+    {"nombre": "Pontevedra", "abreviatura": "PO"},
+    {"nombre": "Salamanca", "abreviatura": "SA"},
+    {"nombre": "Santa Cruz de Tenerife", "abreviatura": "TF"},
+    {"nombre": "Segovia", "abreviatura": "SG"},
+    {"nombre": "Sevilla", "abreviatura": "SE"},
+    {"nombre": "Soria", "abreviatura": "SO"},
+    {"nombre": "Tarragona", "abreviatura": "T"},
+    {"nombre": "Teruel", "abreviatura": "TE"},
+    {"nombre": "Toledo", "abreviatura": "TO"},
+    {"nombre": "Valencia", "abreviatura": "V"},
+    {"nombre": "Valladolid", "abreviatura": "VA"},
+    {"nombre": "Vizcaya", "abreviatura": "BI"},
+    {"nombre": "Zamora", "abreviatura": "ZA"},
+    {"nombre": "Zaragoza", "abreviatura": "Z"}
   ];
 
   onSubmit(): void {
-    alert('Thanks!');
+    alert('¡Gracias!');
   }
 }
